@@ -34,12 +34,13 @@
 					<option value="Male">Male</option>
 					<option value="Female">Female</option>
 				</select>
+				<div class="inputField" id="submitField">
+					<input id="submitBtn" type="submit" value="Add New Passenger"></input>
+				</div>
 			</div>
 		</form>
 	</fieldset>
-	<div class="inputField" id="submitField">
-		<input id="submitBtn" type="submit" value="Add New Passenger"></input>
-	</div>
+
 
 
 </body>

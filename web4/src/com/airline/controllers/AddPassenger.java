@@ -89,10 +89,16 @@ public class AddPassenger extends HttpServlet {
 
 			System.out.println("Invalid Date of Birth");
 			request.setAttribute("errors", true);
-			request.setAttribute("date_fromat_error", true);
+			request.setAttribute("date_format_error", true);
 		}
 		String gender = request.getParameter("gender");
 		System.out.println("gender : " + gender);
+
+		if ((Boolean) request.getAttribute("errors")) {
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/views/add_passenger.jsp");
+			
+			view.forward(request, response);
+		}
 
 	}
 

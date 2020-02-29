@@ -7,8 +7,7 @@ import javax.ejb.Stateless;
  * Session Bean implementation class FligthService
  */
 @Stateless
-@LocalBean
-public class FlightService {
+public class FlightService implements FlightLocal{
 
 	/**
 	 * Default constructor.
@@ -23,7 +22,9 @@ public class FlightService {
 	private Integer price = 400;
 	private Integer numOfSeats = 250;
 	private String airplaneModel = "Boeing 787";
-
+	
+	
+ 
 	public Integer getId() {
 		return id;
 	}

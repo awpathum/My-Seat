@@ -114,15 +114,15 @@ public class AddPassenger extends HttpServlet {
 		} else {
 
 			ServletContext sc = this.getServletContext();
-			ArrayList<Passenger> pList = (ArrayList<Passenger>) sc.getAttribute("passenger");
-			// ArrayList<Passenger> pList = new ArrayList<Passenger>();
-			pList.add(p);
+			synchronized (this) {
+				ArrayList<Passenger> pList = (ArrayList<Passenger>) sc.getAttribute("passenger");
+				pList.add(p);
 
-			sc.setAttribute("passengers", pList);
-
+				sc.setAttribute("passengers", pList);
+			}
 			response.sendRedirect("");
-		}
 
+		}
 	}
 
 }

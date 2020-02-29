@@ -8,12 +8,12 @@ import javax.ejb.Stateless;
  */
 @Stateless
 @LocalBean
-public class FligthService {
+public class FlightService {
 
 	/**
 	 * Default constructor.
 	 */
-	public FligthService() {
+	public FlightService() {
 		// TODO Auto-generated constructor stub
 	}
 

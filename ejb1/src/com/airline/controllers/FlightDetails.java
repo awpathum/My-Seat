@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.airline.service.FlightLocal;
+import com.airline.service.FlightRemote;
 import com.airline.service.FlightService;
 
 /**
@@ -22,9 +23,12 @@ import com.airline.service.FlightService;
 @WebServlet("/FlightDetails")
 public class FlightDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	@EJB
 	private FlightLocal fs;
+
+	@EJB
+	private FlightRemote fsRemote;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -44,6 +48,7 @@ public class FlightDetails extends HttpServlet {
 		out.println("The flight details servlet has been called..");
 
 		out.println("Flight Details : " + fs.getFrom() + " to " + fs.getTo());
+		out.println("Flight Details : " + fs.getFrom() + " to " + fsRemote.getTo());
 	}
 
 	/**

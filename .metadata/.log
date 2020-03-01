@@ -1527,3 +1527,57 @@ org.eclipse.core.runtime.CoreException: Unable to detect 'webapp' folder in the 
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 !SUBENTRY 1 org.eclipse.wst.jsdt.chromium.debug.js 4 0 2020-02-29 19:33:16.978
 !MESSAGE Unable to detect 'webapp' folder in the project for debugging
+
+!ENTRY org.eclipse.glassfish.tools 4 0 2020-03-01 10:09:57.956
+!MESSAGE deploy is failing=
+!STACK 0
+java.lang.Exception: deploy is failing=Error occurred during deployment: Exception while deploying the app [ejb1] : Cannot resolve reference [Local ejb-ref name=flightStateless,Local 3.x interface =com.airline.service.FlightLocal_ejb1,ejb-link=null,lookup=,mappedName=,jndi-name=,refType=Session] because there are [2] ejbs in the application with interface com.airline.service.FlightLocal_ejb1. 
+Some of the possible causes: 
+1. The EJB bean class was packaged in an ear lib library (or through any other library mechanism which makes the library visible to all component modules), this makes all the component modules include this bean class indirectly. 
+2. The EJB bean class was packaged in a component module which references the EJB, either directly or indirectly through Manifest, WEB-INF/lib. 
+The EJB bean class should only be packaged in the declaring ejb module and not the referencing modules. The referencing modules should only include EJB interfaces.. Please see server.log for more details.
+	at org.eclipse.glassfish.tools.GlassFishServerBehaviour.publishDeployedDirectory(GlassFishServerBehaviour.java:598)
+	at org.eclipse.glassfish.tools.GlassFishServerBehaviour.publishModuleForGlassFishV3(GlassFishServerBehaviour.java:825)
+	at org.eclipse.glassfish.tools.GlassFishServerBehaviour.publishModule(GlassFishServerBehaviour.java:785)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModule(ServerBehaviourDelegate.java:1093)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModules(ServerBehaviourDelegate.java:1185)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:989)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:776)
+	at org.eclipse.wst.server.core.internal.Server.publishImpl(Server.java:3184)
+	at org.eclipse.wst.server.core.internal.Server$PublishJob.run(Server.java:357)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.glassfish.tools 4 0 2020-03-01 10:09:57.980
+!MESSAGE cannot Deploy ejb1
+!STACK 0
+java.lang.Exception: deploy is failing=Error occurred during deployment: Exception while deploying the app [ejb1] : Cannot resolve reference [Local ejb-ref name=flightStateless,Local 3.x interface =com.airline.service.FlightLocal_ejb1,ejb-link=null,lookup=,mappedName=,jndi-name=,refType=Session] because there are [2] ejbs in the application with interface com.airline.service.FlightLocal_ejb1. 
+Some of the possible causes: 
+1. The EJB bean class was packaged in an ear lib library (or through any other library mechanism which makes the library visible to all component modules), this makes all the component modules include this bean class indirectly. 
+2. The EJB bean class was packaged in a component module which references the EJB, either directly or indirectly through Manifest, WEB-INF/lib. 
+The EJB bean class should only be packaged in the declaring ejb module and not the referencing modules. The referencing modules should only include EJB interfaces.. Please see server.log for more details.
+	at org.eclipse.glassfish.tools.GlassFishServerBehaviour.publishDeployedDirectory(GlassFishServerBehaviour.java:598)
+	at org.eclipse.glassfish.tools.GlassFishServerBehaviour.publishModuleForGlassFishV3(GlassFishServerBehaviour.java:825)
+	at org.eclipse.glassfish.tools.GlassFishServerBehaviour.publishModule(GlassFishServerBehaviour.java:785)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModule(ServerBehaviourDelegate.java:1093)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModules(ServerBehaviourDelegate.java:1185)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:989)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:776)
+	at org.eclipse.wst.server.core.internal.Server.publishImpl(Server.java:3184)
+	at org.eclipse.wst.server.core.internal.Server$PublishJob.run(Server.java:357)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.glassfish.tools 4 0 2020-03-01 10:10:59.662
+!MESSAGE Undeploy is failing=
+!STACK 0
+java.lang.Exception: undeploy is failing=Application ejb1 is not deployed on this target [server]
+	at org.eclipse.glassfish.tools.GlassFishServerBehaviour.undeploy(GlassFishServerBehaviour.java:445)
+	at org.eclipse.glassfish.tools.GlassFishServerBehaviour.publishDeployedDirectory(GlassFishServerBehaviour.java:505)
+	at org.eclipse.glassfish.tools.GlassFishServerBehaviour.publishModuleForGlassFishV3(GlassFishServerBehaviour.java:825)
+	at org.eclipse.glassfish.tools.GlassFishServerBehaviour.publishModule(GlassFishServerBehaviour.java:785)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModule(ServerBehaviourDelegate.java:1093)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModules(ServerBehaviourDelegate.java:1185)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:989)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:776)
+	at org.eclipse.wst.server.core.internal.Server.publishImpl(Server.java:3184)
+	at org.eclipse.wst.server.core.internal.Server$PublishJob.run(Server.java:357)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

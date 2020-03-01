@@ -1,10 +1,10 @@
 package com.airline.service;
 
-import javax.ejb.Remote;
+import javax.ejb.Local;
 
-@Remote
-public interface FlightRemote {
-	
+@Local
+public interface FlightLocal_ejb1 {
+
 	public Integer getId();
 
 	public void setId(Integer id);
@@ -31,5 +31,5 @@ public interface FlightRemote {
 
 	@Override
 	public String toString();
-	
+
 }
